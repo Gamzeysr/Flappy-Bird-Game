@@ -28,4 +28,4 @@ document.addEventListener('keydown', (e) => {
         message.classList.remove('messageStyle');
         play();
     }
-})
+});
