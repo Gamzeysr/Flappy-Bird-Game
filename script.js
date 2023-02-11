@@ -5,7 +5,7 @@ let img = document.getElementById('bird-1');
 // getting bird element properties
 let bird_props = bird.getBoundingClientRect();
 
-let background = document.querySelector('background').getBoundingClientRect();
+let background = document.querySelector('.background').getBoundingClientRect();
 let score_val = document.querySelector('.score_val');
 let message = document.querySelector('.message');
 let score_title = document.querySelector('.score_title');
