@@ -77,5 +77,38 @@ function play() {
                 img.src = 'images/Bird.png';
             }
         });
+        if (bird_props.top <= 0 || bird_props.bottom >= background.bottom) {
+            game_state = 'End';
+            message.style.left = '28vw';
+            window.location.reload();
+            message.classList.remove('messageStyle');
+            return;
+        }
+        bird.style.top = bird_props.top + bird_dy + 'px';
+        bird_props = bird.getBoundingClientRect();
+        requestAnimationFrame(apply_gravity);
     }
+    requestAnimationFrame(apply_gravity);
+
+    let pipe_seperation = 0;
+    let pipe_gap = 35;
+
+    function create_pipe() {
+        if (game_state != 'play') return;
+
+        if (pipe_seperation > 115) {
+            pipe_seperation = 0;
+            let pipe_posi = Math.floor(Math.random() * 43) + 8;
+            let pipe_sprite_inv = document.createElement('div');
+            pipe_sprite_inv.className = 'pipe_sprite';
+            pipe_sprite_inv.style.top = pipe_posi - 70 + 'vh';
+            pipe_sprite_inv.style.left = '100vw';
+
+            document.body.appendChild(pipe_sprite);
+
+        }
+        pipe_seperation++;
+        requestAnimationFrame(create_pipe);
+    }
+    requestAnimationFrame(create_pipe);
 }
