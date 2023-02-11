@@ -59,7 +59,7 @@ function play() {
         });
         requestAnimationFrame(move);
     }
-    requestAnimationFrame(movw);
+    requestAnimationFrame(move);
 
     let bird_dy = 0;
     function apply_gravity() {
